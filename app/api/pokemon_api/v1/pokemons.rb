@@ -76,6 +76,7 @@ module PokemonApi
         end
         post do
           pokemon = Pokemon.create!(Helpers.json_to_model(params))
+          status 201
           present Helpers.model_to_json(pokemon)
         end
 
