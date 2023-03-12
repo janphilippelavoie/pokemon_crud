@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Code for seeding the database is in ```db/seeds.rb``` so calling:
+```./bin/rake db:seed```
+will populate the database with the data in the csv: ```lib/seeds/pokemon_seed.csv```
 
-Things you may want to cover:
+```./bin/rake db:reset```
+will reset the database and reseed it
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
