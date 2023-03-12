@@ -48,3 +48,5 @@ end
 
 
 gem "grape", "~> 1.7"
+
+gem "will_paginate", "~> 3.3"

@@ -46,8 +46,17 @@ module PokemonApi
       resource :pokemon do
 
         desc 'Return a list of pokemons'
+        params do
+          optional :page_number, type: Integer, desc: "Page number when paginating"
+          optional :per_page, type: Integer, desc: "Number of results per page", default: 10
+        end
         get do
-          present Pokemon.find_each.map { |p| Helpers.model_to_json(p) }
+          if params[:page_number].present?
+            pokemons = Pokemon.paginate(page: params[:page_number], per_page: params[:per_page])
+          else
+            pokemons = Pokemon.all
+          end
+          present pokemons.map { |p| Helpers.model_to_json(p) }
         end
 
         params do
